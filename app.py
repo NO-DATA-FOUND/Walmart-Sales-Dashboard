@@ -35,7 +35,7 @@ model = load_model()
 
 # --- 3. SIDEBAR (CONTROLES) ---
 with st.sidebar:
-    st.image("https://upload.wikimedia.org/wikipedia/commons/c/ca/Walmart_logo.svg", width=150)
+    st.image("https://es.wikipedia.org/wiki/Walmart#/media/Archivo:Walmart_logo_(2025;_Alt).svg", width=150)
     st.header("⚙️ Configuración")
     
     # Datos Temporales
@@ -140,6 +140,7 @@ else:
             "Entrenamiento": "Datos históricos 2010-2012",
             "Variables Clave": ["Tienda", "Semana", "CPI", "Desempleo"]
         })
+
 
 
 

@@ -14,7 +14,7 @@ def load_model():
     # CORRECCIÓN: Quitamos 'os.path.join' y la carpeta 'modelo'
     # Usamos directamente el nombre del archivo.
     try:
-        model = joblib.load('walmart_sales_model_final.joblib')
+        model = joblib.load('modelo_ventas_walmart_final.joblib')
         return model
     except FileNotFoundError:
         # Intenta con el otro nombre por si acaso usaste la Versión 3
@@ -83,5 +83,6 @@ if st.button("Calcular Predicción", type="primary"):
         else:
 
             st.info("Nota: Volumen de ventas dentro del rango estándar.")
+
 
 

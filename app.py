@@ -11,13 +11,19 @@ st.set_page_config(page_title="Predicción Walmart", page_icon="🛒")
 # --- CARGA DEL MODELO ---
 @st.cache_resource
 def load_model():
-    # Buscamos el modelo en la carpeta 'modelo'
-    ruta_modelo = os.path.join("walmart_ventas_model_final.joblib")
+    # CORRECCIÓN: Quitamos 'os.path.join' y la carpeta 'modelo'
+    # Usamos directamente el nombre del archivo.
     try:
-        return joblib.load(ruta_modelo)
+        model = joblib.load('walmart_sales_model_final.joblib')
+        return model
     except FileNotFoundError:
-        st.error("⚠️ Error: No se encuentra el archivo del modelo en la carpeta 'modelo/'.")
-        return None
+        # Intenta con el otro nombre por si acaso usaste la Versión 3
+        try:
+             model = joblib.load('modelo_ventas_walmart_final.joblib')
+             return model
+        except:
+            st.error("⚠️ Error Crítico: No se encuentra el archivo .joblib en el repositorio.")
+            return None
 
 model = load_model()
 
@@ -77,4 +83,5 @@ if st.button("Calcular Predicción", type="primary"):
         else:
 
             st.info("Nota: Volumen de ventas dentro del rango estándar.")
+
 

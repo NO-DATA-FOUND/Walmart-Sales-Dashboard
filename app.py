@@ -12,7 +12,7 @@ st.set_page_config(page_title="Predicción Walmart", page_icon="🛒")
 @st.cache_resource
 def load_model():
     # Buscamos el modelo en la carpeta 'modelo'
-    ruta_modelo = os.path.join("modelo", "walmart_sales_model_final.joblib")
+    ruta_modelo = os.path.join("modelo", "walmart_ventas_model_final.joblib")
     try:
         return joblib.load(ruta_modelo)
     except FileNotFoundError:
@@ -75,4 +75,5 @@ if st.button("Calcular Predicción", type="primary"):
         if pred > 1500000:
             st.warning("Nota: Se proyecta un volumen de ventas ALTO.")
         else:
+
             st.info("Nota: Volumen de ventas dentro del rango estándar.")

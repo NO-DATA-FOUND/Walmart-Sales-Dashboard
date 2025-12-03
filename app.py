@@ -27,7 +27,7 @@ st.markdown("""
 def load_model():
     try:
         # Intenta cargar el archivo localmente
-        return joblib.load('walmart_sales_model_final.joblib')
+        return joblib.load('walmart_ventas_model_final.joblib')
     except Exception as e:
         return None
 
